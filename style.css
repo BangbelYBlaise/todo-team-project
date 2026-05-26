@@ -1,7 +1,12 @@
 /* Style général de la page */
 body {
+<<<<<<< HEAD
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f9;
+=======
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f2f5;
+>>>>>>> ca9a3253260df66578f1868c0a30f0d6f272137e
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +14,7 @@ body {
     margin: 0;
 }
 
+<<<<<<< HEAD
 /* Conteneur principal de la liste */
 .todo-container {
     background: white;
@@ -59,12 +65,57 @@ button:hover {
 }
 
 /* Style de la liste des tâches */
+=======
+/* Conteneur de la liste */
+.todo-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 350px;
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8;
+}
+
+/* Zone d'ajout */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1557b0;
+}
+
+/* Style des éléments de la liste */
+>>>>>>> ca9a3253260df66578f1868c0a30f0d6f272137e
 ul {
     list-style: none;
     padding: 0;
 }
 
 li {
+<<<<<<< HEAD
     background: #fff;
     border-bottom: 1px solid #eee;
     padding: 10px;
@@ -76,3 +127,11 @@ li {
 li:last-child {
     border-bottom: none;
 }
+=======
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 5px solid #1a73e8;
+}
+>>>>>>> ca9a3253260df66578f1868c0a30f0d6f272137e
