@@ -1,22 +1,43 @@
-// On récupère les éléments HTML
-const btn = document.querySelector('button');
-const input = document.querySelector('input');
-const list = document.querySelector('ul');
+const addBtn = document.getElementById("addBtn");
 
-// Fonction pour ajouter une tâche
-btn.addEventListener('click', function() {
-    // On vérifie que le champ n'est pas vide
-    if (input.value.trim() !== "") {
-        // Création d'un nouvel élément de liste (li)
-        const newItem = document.createElement('li');
-        newItem.textContent = input.value;
-        
-        // Ajout de l'élément à la liste (ul)
-        list.appendChild(newItem);
-        
-        // On vide le champ de saisie
-        input.value = "";
-    } else {
-        alert("Veuillez entrer une tâche !");
+const taskInput = document.getElementById("taskInput");
+
+const taskList = document.getElementById("taskList");
+
+addBtn.addEventListener("click", () => {
+
+    if(taskInput.value === ""){
+
+        alert("Veuillez entrer une tâche");
+
+        return;
+
     }
+
+    const li = document.createElement("li");
+
+    li.textContent = taskInput.value;
+
+    li.addEventListener("click", () => {
+
+        li.style.textDecoration = "line-through";
+
+    });
+
+    const deleteBtn = document.createElement("button");
+
+    deleteBtn.textContent = "Supprimer";
+
+    deleteBtn.onclick = () => {
+
+        li.remove();
+
+    };
+
+    li.appendChild(deleteBtn);
+
+    taskList.appendChild(li);
+
+    taskInput.value = "";
+
 });
