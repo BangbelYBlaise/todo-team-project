@@ -12,7 +12,7 @@ addBtn.addEventListener("click", () => {
 
         return;
 
-    }
+}
 
     const li = document.createElement("li");
 
