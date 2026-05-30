@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo Team Project</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ToDo Team Project - Sprint Review</title>
+    <style>
+        /* Intégration directe du CSS pour garantir le visuel de l'Étudiant B */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .todo-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        h1 { text-align: center; color: #333; }
+        .input-section { display: flex; gap: 10px; margin-bottom: 20px; }
+        input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        ul { list-style-type: none; padding: 0; }
+        li { 
+            padding: 10px; 
+            background: #f9f9f9; 
+            border-bottom: 1px solid #eee; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .delete-btn { background-color: #dc3545; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+    </style>
 </head>
 <body>
 
@@ -13,38 +45,34 @@
         
         <div class="input-section">
             <input type="text" id="taskInput" placeholder="Ajouter une tâche...">
-            <button id="addTaskBtn">Ajouter</button>
+            <button onclick="ajouterNouvelleTache()">Ajouter</button>
         </div>
 
         <ul id="taskList"></ul>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const taskInput = document.getElementById('taskInput');
-            const addTaskBtn = document.getElementById('addTaskBtn');
-            const taskList = document.getElementById('taskList');
+        // Fonction globale appelée directement par le bouton HTML
+        function ajouterNouvelleTache() {
+            const input = document.getElementById('taskInput');
+            const liste = document.getElementById('taskList');
+            const texte = input.value.trim();
 
-            if (addTaskBtn) {
-                addTaskBtn.addEventListener('click', function() {
-                    const taskText = taskInput.value.trim();
-                    if (taskText !== "") {
-                        const li = document.createElement('li');
-                        li.innerHTML = `
-                            <span>${taskText}</span>
-                            <button class="delete-btn" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; cursor: pointer; margin-left: 10px;">Supprimer</button>
-                        `;
-                        li.querySelector('.delete-btn').addEventListener('click', function() {
-                            li.remove();
-                        });
-                        taskList.appendChild(li);
-                        taskInput.value = "";
-                    } else {
-                        alert("Veuillez saisir une tâche !");
-                    }
-                });
+            if (texte !== "") {
+                const li = document.createElement('li');
+                
+                // On injecte le texte et le bouton de suppression avec un onclick direct
+                li.innerHTML = `
+                    <span>${texte}</span>
+                    <button class="delete-btn" onclick="this.parentElement.remove()">Supprimer</button>
+                `;
+                
+                liste.appendChild(li);
+                input.value = ""; // Vide le champ
+            } else {
+                alert("Veuillez saisir une tâche !");
             }
-        });
+        }
     </script>
 </body>
 </html>
